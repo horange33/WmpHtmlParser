@@ -37,24 +37,30 @@
     </script>
 
 <body>
-<div id="content" style="margin-top:30px;vertical-align: middle;display:table-cell;">
-	<form name="parserForm" action="/" method="GET">
-		<div id="inspace">
-			<h1>[입력]</h1>
-			<p>URL&nbsp;&nbsp;<input type="text" name="strURL"/></p>
-			<p>Type&nbsp;&nbsp;<select name="strType">
-				<option value="1">HTML 태그 제외</option>
-				<option value="2">Text 전체</option>
-			</select>
-			</p>
-			<p>출력&nbsp;단위&nbsp;묶음&nbsp;&nbsp;<input type="number" name="leng"></p>
-			<input type="button" onclick="search()" value="출력">
+<div>
+</div>
+<div id="content" style="padding-top:50px;padding-left:50px;vertical-align: middle;display:table-cell;">
+	<form name="parserForm" action="/search" method="post">
+		<div id="inspace" style="width:320px;height:200px;">
+			<h2>[입력]</h2>
+			<div id="inspace2">
+				<p>URL <input type="text" name="strURL" style="float:right;width:180px;"/></p>
+				<p>Type <select name="strType" style="float:right;width:180px;">
+					<option value="1">HTML 태그 제외</option>
+					<option value="2">Text 전체</option>
+				</select>
+				</p>
+				<p>출력 단위 묶음 <input type="number" name="leng" style="float:right;width:180px;"></p>
+				<input type="button" onclick="search()" value="출력" style="float:right;">
+			</div>
 		</div>
 	
-	<div id="outspace">
-		<h1>[출력]</h1>
-		<p>몫 : <textarea cols="50" rows="10" readonly>${parserInfo1}</textarea></p>
-		<p>나머지 : ${parserInfo2}</p>
+	<div id="outspace" style="width:320px;height:250px;">
+		<h2>[출력]</h2>
+		<div id="outspace2">
+			<div style="height:100px;">몫 : ${parserNum1}<textarea style="float:right;resize:none;width:220px;height:80px;" readonly>${parserInfo1}</textarea></div>
+			<div style="height:100px;">나머지 : ${parserNum2}<textarea  style="float:right;resize:none;width:220px;height:80px;" readonly>${parserInfo2}</textarea></div>
+		</div>
 	</div>
 	</form>
 </div>

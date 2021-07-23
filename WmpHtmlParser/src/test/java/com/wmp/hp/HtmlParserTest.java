@@ -37,9 +37,16 @@ public class HtmlParserTest {
 	
 	@Test
 	public void parserTest4() {
-		System.out.println(url.getElements(urlStr2));
+		//System.out.println(url.getElements(urlStr2));
 		String temp = parser.removeSpecialTag(url.getElements(urlStr2));
 		
-		System.out.println(temp);
+		//System.out.println(temp);
+	}
+	
+	@Test
+	public void parserLengthTest() {
+		System.out.println(url.getElements(urlStr2).length());
+		String temp = parser.removeSpecialTag(url.getElements(urlStr2));
+		
 	}
 }

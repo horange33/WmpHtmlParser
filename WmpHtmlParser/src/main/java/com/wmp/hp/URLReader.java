@@ -34,11 +34,11 @@ public class URLReader {
             InputStreamReader isr = new InputStreamReader(is, "UTF-8");
             BufferedReader br = new BufferedReader(isr);
              
-            String str ;
+            String str;
             while((str=br.readLine()) != null){
-                 
             	sbuf.append(str) ;
             }
+            br.close();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {

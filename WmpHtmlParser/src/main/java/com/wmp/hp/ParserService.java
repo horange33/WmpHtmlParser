@@ -22,9 +22,9 @@ public class ParserService {
 	}
 	
 	public String getParseString() {
-		URLReader urlReader = new URLReader();
+		URLReader urlReader = URLReader.getInstance();
 		HtmlParser parser = new HtmlParser();
-		
+
 		if(type.equals("1")) {
 			return parser.removeHtmlTag(urlReader.getElements(url));
 		} else if(type.equals("2")) {
@@ -68,10 +68,8 @@ public class ParserService {
 	
 	public String getAnswerRemainder(String sortedStr) {
 		int num = 0;
-		//int remainder = 0;
 		try {
 		 num = sortedStr.length() / unit;
-		 //num = sortedStr.length() % unit;
 		} catch(NumberFormatException e) {
 			System.out.println(e);
 		}
