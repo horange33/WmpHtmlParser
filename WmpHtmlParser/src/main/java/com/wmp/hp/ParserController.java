@@ -38,7 +38,7 @@ public class ParserController {
 			String ansNumStr = parserService.getAnswerNum(sortedStr);
 			String ansRemainStr = parserService.getAnswerRemainder(sortedStr);
 			
-			model.addAttribute("parserNum1", ansNumStr.length());
+			model.addAttribute("parserNum1", ansNumStr.length()/Integer.parseInt(request.getParameter("leng")));
 			model.addAttribute("parserNum2", ansRemainStr.length());
 			model.addAttribute("parserInfo1", ansNumStr);
 			model.addAttribute("parserInfo2", ansRemainStr);
