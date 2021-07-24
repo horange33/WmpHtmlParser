@@ -6,6 +6,20 @@ import org.junit.Test;
 
 public class HtmlParserTest {
 
+	private String beforeString = ""
+			+ "<html>"
+			+ "<head>"
+			+ "<script src=\"/script/main.js\"></script>"
+			+ "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"/>"
+			+ "<meta charset=\"utf-8\"/>" 
+			+ "<title>여기wefwe..<wdw> </title>"
+			+ "</head>"
+			+ "</body>"
+			+ "<div id=\"id1\" style=\"display:block;width:100px;height:100px\" class=\"class\">여기만 asdas출력되면</div>"
+			+ "</body>"
+			+ "</html>";
+	
+	
 	URLReader url = new URLReader();
 	HtmlParser parser = new HtmlParser();
 	String urlStr = "https://12bme.tistory.com/157";
@@ -19,7 +33,7 @@ public class HtmlParserTest {
 		assertNotNull(temp);
 	}
 	
-	@Test
+	@Test(expected=NullPointerException.class)
 	public void parserTest2() {
 		
 		String temp = parser.removeHtmlTag(null);
@@ -29,24 +43,30 @@ public class HtmlParserTest {
 	
 	@Test
 	public void parserTest3() {
-		//System.out.println(url.getElements(urlStr));
-		String temp = parser.removeSpecialTag(url.getElements(urlStr));
+		String temp = parser.removeHtmlTag(beforeString);
 		
-		//System.out.println(temp);
+		assertEquals("wefweasdas", temp);
 	}
 	
 	@Test
 	public void parserTest4() {
-		//System.out.println(url.getElements(urlStr2));
-		String temp = parser.removeSpecialTag(url.getElements(urlStr2));
+		String temp = parser.removeSpecialTag("<html><body>fd3</body></html>");
 		
-		//System.out.println(temp);
+		assertEquals("htmlbodyfd3bodyhtml", temp);
+		
 	}
 	
 	@Test
-	public void parserLengthTest() {
-		System.out.println(url.getElements(urlStr2).length());
-		String temp = parser.removeSpecialTag(url.getElements(urlStr2));
+	public void parserTest5() {
+		String temp = parser.removeSpecialTag("<html><body></body></html>");
 		
+		assertEquals("htmlbodybodyhtml", temp);
+	}
+	
+	@Test
+	public void parserTest6() {
+		String temp = parser.removeHtmlTag("<html><body></body></html>");
+		
+		assertEquals("", temp);
 	}
 }

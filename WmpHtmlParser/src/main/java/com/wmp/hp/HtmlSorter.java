@@ -5,12 +5,6 @@ import java.util.Comparator;
 
 public class HtmlSorter {
 	public String[] sortStr(String str) {
-		/*char[] temp = str.toCharArray();
-		String[] tmp = new String[temp.length];
-				
-		for(int i=0;i<temp.length;i++) {
-			tmp[i] = String.valueOf(temp[i]);
-		}*/
 		
 		String[] tmp = str.split("");
 		

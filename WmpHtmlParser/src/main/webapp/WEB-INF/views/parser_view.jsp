@@ -37,8 +37,6 @@
     </script>
 
 <body>
-<div>
-</div>
 <div id="content" style="padding-top:50px;padding-left:50px;vertical-align: middle;display:table-cell;">
 	<form name="parserForm" action="/search" method="post">
 		<div id="inspace" style="width:320px;height:200px;">
